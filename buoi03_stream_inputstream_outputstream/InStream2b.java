@@ -9,6 +9,7 @@ public class InStream2b {
 
         try {
             while (true) {
+                System.out.println(is.available());
                 // Kiểm tra xem có bao nhiêu byte dữ liệu có sẵn mà không bị chặn
                 if (is.available() > 0) {
                     byte[] buffer = new byte[is.available()];

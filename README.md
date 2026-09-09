@@ -29,6 +29,16 @@
 | [`InStream2b.java`](./buoi03_stream_inputstream_outputstream/InStream2b.java) | Ví dụ 2 — Đọc non-blocking dùng `available()`, in dấu `.` khi chờ dữ liệu |
 | [`ReadLineDemo.java`](./buoi03_stream_inputstream_outputstream/ReadLineDemo.java) | Ví dụ 3 — Đọc từng dòng văn bản dùng `BufferedReader` bọc `InputStreamReader` |
 
+#### 🔬 Thực hành
+
+| File | Bài | Mô tả |
+|------|-----|-------|
+| [`thuchanh/ConsoleReaderDemo.java`](./buoi03_stream_inputstream_outputstream/thuchanh/ConsoleReaderDemo.java) | TH1 | Đọc văn bản từ bàn phím, đếm số dòng, thoát khi nhập `q` |
+| [`thuchanh/TextFileDemo.java`](./buoi03_stream_inputstream_outputstream/thuchanh/TextFileDemo.java) | TH2 | Ghi và đọc tệp văn bản UTF-8 với `BufferedWriter` / `BufferedReader` |
+| [`thuchanh/BinaryFileCopy.java`](./buoi03_stream_inputstream_outputstream/thuchanh/BinaryFileCopy.java) | TH3 | Sao chép tệp nhị phân (ảnh) bằng byte stream có bộ đệm 8KB |
+| [`thuchanh/Product.java`](./buoi03_stream_inputstream_outputstream/thuchanh/Product.java) | TH4 | Lớp `Product` — validate, tính giá trị tồn kho |
+| [`thuchanh/ProductCsvApp.java`](./buoi03_stream_inputstream_outputstream/thuchanh/ProductCsvApp.java) | TH4 | Đọc `products.csv`, in danh sách, ghi báo cáo `report.txt` |
+
 ---
 
-*Cập nhật lần cuối: 08/09/2026*
+*Cập nhật lần cuối: 09/09/2026*
