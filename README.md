@@ -41,4 +41,14 @@
 
 ---
 
-*Cập nhật lần cuối: 09/09/2026*
+### 📂 [buoi4_socket_io](./buoi4_socket_io/)
+> **Chủ đề:** Socket I/O — TCP Echo Server & Client (`java.net.ServerSocket`, `java.net.Socket`)
+
+| File | Mô tả |
+|------|-------|
+| [`TCPEchoServer.java`](./buoi4_socket_io/TCPEchoServer.java) | Server lắng nghe port **6789**, nhận từng byte từ client và echo lại |
+| [`TCPEchoClient.java`](./buoi4_socket_io/TCPEchoClient.java) | Client kết nối `127.0.0.1:6789`, gửi ký tự `0`→`9` mỗi 2 giây và in phản hồi |
+
+---
+
+*Cập nhật lần cuối: 15/09/2026*
