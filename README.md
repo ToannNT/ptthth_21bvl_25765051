@@ -51,4 +51,25 @@
 
 ---
 
-*Cập nhật lần cuối: 15/09/2026*
+### 📂 [buoi5_socket_oi](./buoi5_socket_oi/)
+> **Chủ đề:** Socket nâng cao — TCP Multi-thread & UDP Echo (`DatagramSocket`, `DatagramPacket`, `Thread`)
+
+#### 🔌 TCP — Multi-threaded Echo
+
+| File | Mô tả |
+|------|-------|
+| [`pTcpEchoServer.java`](./buoi5_socket_oi/pTcpEchoServer.java) | TCP Server lắng nghe port **6789**, tạo `t_Processing` thread mỗi khi có client kết nối |
+| [`sTcpEchoServer.java`](./buoi5_socket_oi/sTcpEchoServer.java) | Tương tự `pTcpEchoServer` — phiên bản thứ hai của TCP multi-thread server |
+| [`t_Processing.java`](./buoi5_socket_oi/t_Processing.java) | Thread xử lý mỗi client — dùng `DataInputStream`/`DataOutputStream`, gửi ký tự `0`→`9`, echo lại phản hồi |
+| [`tcpEchoClient.java`](./buoi5_socket_oi/tcpEchoClient.java) | TCP Client kết nối server (IP + port từ args), đọc tên server, gửi `0`→`9` mỗi 2 giây |
+
+#### 📡 UDP — UDP Echo (phần trọng tâm)
+
+| File | Mô tả |
+|------|-------|
+| [`udpEchoServer.java`](./buoi5_socket_oi/udpEchoServer.java) | UDP Server dùng `DatagramSocket(6789)`, nhận 10 gói tin, in dữ liệu và echo ngược lại client bằng `DatagramPacket` |
+| [`udpEchoClient.java`](./buoi5_socket_oi/udpEchoClient.java) | UDP Client gửi `"data | 0"` → `"data | 9"` tới server mỗi 2 giây, nhận và in phản hồi |
+
+---
+
+*Cập nhật lần cuối: 23/09/2026*
