@@ -72,4 +72,94 @@
 
 ---
 
-*Cập nhật lần cuối: 23/09/2026*
+### 📂 [buoi6_tcp_services](./buoi6_tcp_services/)
+> **Chủ đề:** TCP Services — Các dịch vụ mạng TCP (Daytime, Echo, HTTP đơn giản)
+
+---
+
+### 📂 [buoi7_jdbc](./buoi7_jdbc/)
+> **Chủ đề:** JDBC — Kết nối cơ sở dữ liệu Java với SQLite
+
+---
+
+### 📂 [buoi8_rmi](./buoi8_rmi/)
+> **Chủ đề:** Java RMI (Remote Method Invocation) — Gọi phương thức từ xa qua mạng
+
+#### 📖 Tổng quan RMI
+
+Java RMI cho phép một chương trình Java gọi phương thức của đối tượng nằm trên máy tính khác thông qua mạng. Mỗi bài gồm 4 thành phần: **Interface**, **Impl** (triển khai), **Server** (đăng ký RMI registry), **Client** (gọi từ xa).
+
+**Cách chạy:** Mở 2 terminal tại `buoi8_rmi\`
+```
+run.bat <số_bài> server    ← Terminal 1
+run.bat <số_bài> client    ← Terminal 2
+```
+
+#### 🗂️ Bài 1 – Hello World (`bai1_hello/`)
+
+| File | Mô tả |
+|------|-------|
+| [`HelloInterface.java`](./buoi8_rmi/src/bai1_hello/HelloInterface.java) | Remote interface khai báo `sayHello()` |
+| [`HelloImpl.java`](./buoi8_rmi/src/bai1_hello/HelloImpl.java) | Triển khai trả về `"Hello, World!"` |
+| [`HelloServer.java`](./buoi8_rmi/src/bai1_hello/HelloServer.java) | Đăng ký object lên RMI registry port 1099 |
+| [`HelloClient.java`](./buoi8_rmi/src/bai1_hello/HelloClient.java) | Lookup và gọi `sayHello()` từ xa |
+
+#### 🗂️ Bài 2 – Tính Tổng Hai Số (`bai2_sum/`)
+
+| File | Mô tả |
+|------|-------|
+| [`SumInterface.java`](./buoi8_rmi/src/bai2_sum/SumInterface.java) | Remote interface khai báo `sum(int a, int b)` |
+| [`SumImpl.java`](./buoi8_rmi/src/bai2_sum/SumImpl.java) | Triển khai trả về `a + b` |
+| [`SumServer.java`](./buoi8_rmi/src/bai2_sum/SumServer.java) | Đăng ký SumService lên registry |
+| [`SumClient.java`](./buoi8_rmi/src/bai2_sum/SumClient.java) | Nhập 2 số nguyên, gọi `sum()` từ xa và in kết quả |
+
+#### 🗂️ Bài 3 – Kiểm Tra Số Nguyên Tố (`bai3_prime/`)
+
+| File | Mô tả |
+|------|-------|
+| [`PrimeInterface.java`](./buoi8_rmi/src/bai3_prime/PrimeInterface.java) | Remote interface khai báo `isPrime(int n)` |
+| [`PrimeImpl.java`](./buoi8_rmi/src/bai3_prime/PrimeImpl.java) | Triển khai kiểm tra số nguyên tố, trả về `true/false` |
+| [`PrimeServer.java`](./buoi8_rmi/src/bai3_prime/PrimeServer.java) | Đăng ký PrimeService lên registry |
+| [`PrimeClient.java`](./buoi8_rmi/src/bai3_prime/PrimeClient.java) | Nhập số `n`, gọi `isPrime()` và in kết quả |
+
+#### 🗂️ Bài 4 – Quản Lý Danh Bạ (`bai4_contacts/`)
+
+| File | Mô tả |
+|------|-------|
+| [`ContactInterface.java`](./buoi8_rmi/src/bai4_contacts/ContactInterface.java) | Remote interface: `addContact()`, `findContact()`, `deleteContact()` |
+| [`ContactImpl.java`](./buoi8_rmi/src/bai4_contacts/ContactImpl.java) | Triển khai quản lý danh bạ bằng `HashMap` trên server |
+| [`ContactServer.java`](./buoi8_rmi/src/bai4_contacts/ContactServer.java) | Đăng ký ContactService lên registry |
+| [`ContactClient.java`](./buoi8_rmi/src/bai4_contacts/ContactClient.java) | Menu tương tác: Add / Find / Delete liên hệ từ xa |
+
+#### 🗂️ Bài 5 – Chat Đơn Giản (`bai5_chat/`)
+
+| File | Mô tả |
+|------|-------|
+| [`ChatInterface.java`](./buoi8_rmi/src/bai5_chat/ChatInterface.java) | Remote interface khai báo `sendMessage(String msg)` |
+| [`ChatImpl.java`](./buoi8_rmi/src/bai5_chat/ChatImpl.java) | Triển khai tự động phản hồi tin nhắn từ client |
+| [`ChatServer.java`](./buoi8_rmi/src/bai5_chat/ChatServer.java) | Đăng ký ChatService lên registry |
+| [`ChatClient.java`](./buoi8_rmi/src/bai5_chat/ChatClient.java) | Gửi tin nhắn và hiển thị reply từ server |
+
+#### 🗂️ Bài 6 – Quản Lý Tài Khoản Ngân Hàng (`bai6_bank/`)
+
+| File | Mô tả |
+|------|-------|
+| [`BankInterface.java`](./buoi8_rmi/src/bai6_bank/BankInterface.java) | Remote interface: `getBalance()`, `deposit()`, `withdraw()` |
+| [`BankImpl.java`](./buoi8_rmi/src/bai6_bank/BankImpl.java) | Triển khai quản lý số dư (mặc định 1,000,000 VNĐ) |
+| [`BankServer.java`](./buoi8_rmi/src/bai6_bank/BankServer.java) | Đăng ký BankService lên registry |
+| [`BankClient.java`](./buoi8_rmi/src/bai6_bank/BankClient.java) | Menu: Check Balance / Deposit / Withdraw |
+
+#### ✅ Kết quả buổi 8
+
+| Bài | Chức năng | Trạng thái |
+|-----|-----------|------------|
+| 1 | Hello World | ✅ Hoàn thành |
+| 2 | Tính tổng 2 số | ✅ Hoàn thành |
+| 3 | Kiểm tra số nguyên tố | ✅ Hoàn thành |
+| 4 | Quản lý danh bạ | ✅ Hoàn thành |
+| 5 | Chat đơn giản | ✅ Hoàn thành |
+| 6 | Tài khoản ngân hàng | ✅ Hoàn thành |
+
+---
+
+*Cập nhật lần cuối: 21/10/2026*
